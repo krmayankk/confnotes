@@ -83,7 +83,6 @@ Talked about https://en.wikipedia.org/wiki/Log-structured_merge-tree
 - root cause was misconfigured ebs volumes, ssd was mounted in the wrong place
 - and reads were happening from root folder rather than ssd disk
 - disk queue length showed same pattern as latency graph which led to diagnosis
-
 - took a sprint to work on reducing error rates and improving ops
 - loved how they were using very arcane and old tools but doing the write things
  for their instrumentations and observability
