@@ -1,7 +1,7 @@
 6/6/2019 Systems@Scale 2019
 ---------------------------
 
-## San Jose professsor
+## Benjamin Reed, Assistant Professor, San Jose State University
  He was talking about scale up vs scale out and walked through a few lessons.
 
 ### lesson1: scale up is rarely an option, today app needs to adapt to problems and be manageable
