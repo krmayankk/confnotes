@@ -68,36 +68,36 @@ Talked about https://en.wikipedia.org/wiki/Log-structured_merge-tree
 - scale your infra-by identifying perf and efficiency bottlnecks
 - scale your org- by helping automate root cause anlysis
 
-## Continuous deployment at facebook
+## Continuous Deployment at Facebook
 - Conveyor, compared to jenkins and spinnaker
 - Sandcastle for build, integrate and test
 
 ## Observability Infra at Affirm
 - deals with financing when buying things
 - affirm downtime incident discussion
- -- tasks for underwriting users was down
- -- because of no monitoring, notificationsm, alerting
+  - tasks for underwriting users was down
+  - because of no monitoring, notificationsm, alerting
 - metrics goal
- -- observability, reliability and usability
+  - observability, reliability and usability
 - talked about 99th percentile latency increase correlated with disk queue length
-- root cause was misconfigured ebs volumes, ssd was mounted in the wrong place
+- root cause was misconfigured EBS volumes, ssd was mounted in the wrong place
 - and reads were happening from root folder rather than ssd disk
 - disk queue length showed same pattern as latency graph which led to diagnosis
 - took a sprint to work on reducing error rates and improving ops
 - loved how they were using very arcane and old tools but doing the write things
- for their instrumentations and observability
--takeways
--- grow monitoring solution as business grows
--- build a metric system with good observaility, reliabulity and usability
--- automate metrics creation for important use cases
+  for their instrumentations and observability
+- takeways
+  - grow monitoring solution as business grows
+  - build a metric system with good observaility, reliabulity and usability
+  - automate metrics creation for important use cases
 
 ## PYMK from linkedin
 - help recommending other members to connect to 
-- venice -key value store with scoring
+- venice --->key value store with scoring
 - PYMK offline infgerence
- -- candidate generation
- -- feature generation
- -- scopring and ranking
+ - candidate generation
+ - feature generation
+ - scopring and ranking
 
 ## Scaling Cluster Management at Facebook with Tupperware
 Kenny Yu, Software Engineer, Facebook  
@@ -108,23 +108,21 @@ Kenny Yu, Software Engineer, Facebook
 - Transparent Sharding of the Control Plane 
 - A single control plane managing servers across data centers
 - Ability for a server to be dynamically managed by different control planes
-- ability of a Job to move across clusters 
-helps automate cluster decommission and maintenance, and allows dynamic capacity shifts via elastic compute.
+- Ability of a Job to move across clusters 
+  helps automate cluster decommission and maintenance, and allows dynamic capacity shifts via elastic compute.
 - Seamless support for Stateful Services
-- A TaskControl Interface that allows the TupperWare Control plane to communicate with Stateful Services about update, restart, maintenance and migration events
-- Not Only spread stateful services across fault domains, but using the ShardManager framework, allow developers to specify their intent for how data shards 
-should spread across containers
+- A TaskControl Interface that allows the TupperWare Control plane to communicate with Stateful Services about update,           restart, maintenance and migration events
+- Not Only spread stateful services across fault domains, but using the ShardManager framework, allow developers to specify     their intent for how data shards should spread across containers
 - Dynamically adjust the speed of update across containers
 - They are consolidating their infrastructure into a large global shared fleet of servers from hundreds of small server pools
-- Their use of small power efficient servers and Hence, they encourage developers of large services to heavily optimize their services to utilize entire servers
- to prevent fragmentation
+- Their use of small power efficient servers and Hence, they encourage developers of large services to heavily optimize their   services to utilize entire servers to prevent fragmentation
 
 ### Some Notes from Happy Hour Chats
-- Talked to Kenny Tupperware(Container Orchestrator for Facebook) around lifecycle of sidecars and here are some quick points I learned
+- Talked to Kenny Tupperware(Container Orchestrator for Facebook) around lifecycle of sidecars and here are some quick points   I learned
 - they dont dynamically inject sidecars, or in other words, they dont have a webhook injection model
 - they inject sidecars at compile time when creating the declarative spec like how we would do in Helm charts
-- when testing a new version of sidecar , they start injecting the new version in x% of new deployments happening  where x% is configurable
-- the model is not forced, so the new sidecar is only injected when the customer pipeline runs to deploy a new version of their app
+- when testing a new version of sidecar , they start injecting the new version in x% of new deployments happening  where x% is   configurable
+- the model is not forced, so the new sidecar is only injected when the customer pipeline runs to deploy a new version of       their app
 - they assume that their new version of sidecar is backward compatible with old versions
 
 ### My observations
@@ -134,9 +132,9 @@ should spread across containers
 
 ## Preemption in Nomad
 - Nomad is container orchestrator from Hashicorp(https://www.nomadproject.io/)
-- declarative, takes descfiption of app and nodes and deploys
+- declarative, takes description of app and nodes and deploys
 - just one binary which can act as client and server as well run as dev mode
-- based on borg,omega and uc berkely sparrow
+- based on borg, omega and UC berkely sparrow research papers
 - 15k+ node deployments
 - containerized as well as legacy apps
 - multi region federation
@@ -159,4 +157,4 @@ should spread across containers
 - even hw spread doesnt mean even software spread
 - most stateless services are managed by tupperware
 - constraint specification language to enable app to require availability requirements
-- max_unavilable_hosts =
+- max_unavailable_hosts =
